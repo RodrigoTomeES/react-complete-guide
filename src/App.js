@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
-const App = props => {
-  const [personsState, setPersonsState] = useState({
+class App extends Component {
+  state = {
     persons: [
       {name: "Rodrigo", age: 21},
       {name: "Regina",  age: 23}
-    ]
-  });
+    ],
+    otherProperty: 'Other property',
+    showPersons: false,
+  }
 
-  const [otherState, setOtherState] = useState({otherProperty: 'Other property'});
-
-  console.log(personsState, otherState);
-
-  const switchNameHandler = (newName) => {
-    setPersonsState({
+  switchNameHandler = (newName) => {
+    this.setState({
       persons: [
         {name: newName, age: 21},
         {name: "Regina", age: 23}
@@ -23,8 +21,8 @@ const App = props => {
     });
   }
 
-  const changedNameHandler = (event) => {
-    setPersonsState({
+  changedNameHandler = (event) => {
+    this.setState({
       persons: [
         {name: "Rodrigo", age: 21},
         {name: event.target.value, age: 23}
@@ -32,7 +30,11 @@ const App = props => {
     });
   }
 
-  const buttonStyle = {
+  togglePersonsHandler = () => {
+    this.setState({showPersons: !this.state.showPersons});
+  }
+
+  buttonStyle = {
     backgroundColor: 'white',
     font: 'inherit',
     border: '1px solid blue',
@@ -40,32 +42,40 @@ const App = props => {
     cursor: 'pointer'
   }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello world</h1>
-        <button 
-          onClick = {() => switchNameHandler('rotome')}
-          style = {buttonStyle}
-        >
-          Switch Name
-        </button>
-        <Person 
-          name = {personsState.persons[0].name}
-          age = {personsState.persons[0].age}
-        >
-          My Hobbies: Painting
-        </Person>
-        <Person 
-          name = {personsState.persons[1].name} 
-          age = {personsState.persons[1].age}
-          click = {switchNameHandler.bind(this, 'Rodrigo!!')}
-          changed = {changedNameHandler}
-        />
-        <p>{otherState.otherProperty}</p>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Hello world</h1>
+          <button 
+            onClick = {this.togglePersonsHandler}
+            style = {this.buttonStyle}
+          >
+            Switch Name
+          </button>
+          {
+            this.state.showPersons ?
+            <div>
+              <Person 
+                name = {this.state.persons[0].name}
+                age = {this.state.persons[0].age}
+              >
+                My Hobbies: Painting
+              </Person>
+              <Person 
+                name = {this.state.persons[1].name} 
+                age = {this.state.persons[1].age}
+                click = {this.switchNameHandler.bind(this, 'Rodrigo!!')}
+                changed = {this.changedNameHandler}
+              />
+              <p>{this.state.otherProperty}</p>
+            </div>
+            : null
+          }
+        </header>
+      </div>
+    );
+  };
 }
 
 export default App;
