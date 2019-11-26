@@ -31,11 +31,11 @@ const Cockpit = (props) => {
 
     const classesAssigned = [];
 
-    if (props.persons.length <= 1) {
+    if (props.personsLength <= 1) {
         classesAssigned.push(classes.red);
     }
 
-    if (props.persons.length <= 0) {
+    if (props.personsLength <= 0) {
         classesAssigned.push(classes.bold);
     }
 
@@ -53,4 +53,4 @@ const Cockpit = (props) => {
     );
 };
 
-export default Cockpit;
+export default React.memo(Cockpit);
