@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
-import Person from '../components/Persons/Person/Person';
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
@@ -43,45 +43,23 @@ class App extends Component {
 
   render() {
     let persons = null;
-    let buttonStyle = [classes.Button];
+    
     if (this.state.showPersons) {
-      persons = (
-        <div>
-          {this.state.persons.map((person, index) => {
-            return  <ErrorBoundary key = {person.id}>
-                      <Person 
-                        name = {person.name}
-                        age = {person.age}
-                        click = {() => this.deletePersonHander(index)}
-                        changed = {(event) => this.changedNameHandler(event, person.id)}/>
-                    </ErrorBoundary>
-          })}
-        </div>
-      );
-
-      buttonStyle.push(classes.Red);
-    }
-
-    const classesAssigned = [];
-
-    if (this.state.persons.length <= 1) {
-      classesAssigned.push(classes.red);
-    }
-
-    if (this.state.persons.length <= 0) {
-      classesAssigned.push(classes.bold);
+      persons = <Persons
+                  persons={this.state.persons}
+                  clicked={this.deletePersonHander}
+                  changed={this.changedNameHandler}
+                />;
     }
 
     return (
       <div className={classes.App}>
         <header className={classes.AppHeader}>
-          <p className = {classesAssigned.join(" ")}>Hello world</p>
-          <button 
-            className = {buttonStyle.join(" ")}
-            onClick = {this.togglePersonsHandler}
-          >
-            Switch Name
-          </button>
+          <Cockpit 
+            showPersons={this.state.showPersons}
+            persons={this.state.persons}
+            toggled={this.togglePersonsHandler}
+          />
           {persons}
         </header>
       </div>
