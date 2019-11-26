@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-complete-guide/static/css/main.ee5e3148.chunk.css",
-    "main.js": "/react-complete-guide/static/js/main.5e9debcc.chunk.js",
-    "main.js.map": "/react-complete-guide/static/js/main.5e9debcc.chunk.js.map",
+    "main.js": "/react-complete-guide/static/js/main.b2245c74.chunk.js",
+    "main.js.map": "/react-complete-guide/static/js/main.b2245c74.chunk.js.map",
     "runtime-main.js": "/react-complete-guide/static/js/runtime-main.0d560d67.js",
     "runtime-main.js.map": "/react-complete-guide/static/js/runtime-main.0d560d67.js.map",
     "static/js/2.b6b1b066.chunk.js": "/react-complete-guide/static/js/2.b6b1b066.chunk.js",
     "static/js/2.b6b1b066.chunk.js.map": "/react-complete-guide/static/js/2.b6b1b066.chunk.js.map",
     "index.html": "/react-complete-guide/index.html",
-    "precache-manifest.4da304ca1eadbe56ff0c99c15f051e2e.js": "/react-complete-guide/precache-manifest.4da304ca1eadbe56ff0c99c15f051e2e.js",
+    "precache-manifest.be1dda29a81a74f0a31323112b7826a5.js": "/react-complete-guide/precache-manifest.be1dda29a81a74f0a31323112b7826a5.js",
     "service-worker.js": "/react-complete-guide/service-worker.js",
     "static/css/main.ee5e3148.chunk.css.map": "/react-complete-guide/static/css/main.ee5e3148.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.0d560d67.js",
     "static/js/2.b6b1b066.chunk.js",
     "static/css/main.ee5e3148.chunk.css",
-    "static/js/main.5e9debcc.chunk.js"
+    "static/js/main.b2245c74.chunk.js"
   ]
 }
