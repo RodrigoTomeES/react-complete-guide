@@ -12,8 +12,8 @@ class App extends Component {
 
   state = {
     persons: [
-      {id: '1', name: "Rodrigo", age: 21},
-      {id: '2', name: "Regina",  age: 23}
+      {id: '1', name: "User1", age: 21},
+      {id: '2', name: "User2",  age: 23}
     ],
     otherProperty: 'Other property',
     showPersons: false,
@@ -70,7 +70,7 @@ class App extends Component {
   render() {
     console.log('[App.js] render');
     let persons = null;
-    
+
     if (this.state.showPersons) {
       persons = <Persons
                   persons={this.state.persons}
@@ -90,7 +90,7 @@ class App extends Component {
             Remove Cockpit
           </button>
           {this.state.showCockpit ? (
-            <Cockpit 
+            <Cockpit
               title={this.props.appTitle}
               showPersons={this.state.showPersons}
               personsLength={this.state.persons.length}
