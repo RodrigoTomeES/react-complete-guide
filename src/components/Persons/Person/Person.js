@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classes from './Person.module.css';
 import withClass from '../../../hoc/withClass';
 import Aux from '../../../hoc/Auxiliary';
+import AuthContext from '../../../context/auth-context';
 
 class Person extends Component {
     // New version to use Refs
@@ -12,12 +13,16 @@ class Person extends Component {
         this.inputElementRef = React.createRef();
     }
 
+    static contextType = AuthContext;
+
     componentDidMount() {
         // Old version to use Refs
         // this.inputElement.focus();
 
         //New version to use Refs
         this.inputElementRef.current.focus();
+
+        console.log('[Person.js] authenticated', this.context.authenticated);
     }
 
     render() {
@@ -30,6 +35,11 @@ class Person extends Component {
     
         return (
             <Aux>
+                {this.context.authenticated ? (
+                <p>Authenticated!</p>
+                ) : (
+                <p>Please log in</p>
+                )}
                 <p onClick={this.props.clicked}>I'm a {this.props.name} and I am {this.props.age} years old!</p>
                 <p>{this.props.children}</p>
                 <input 
