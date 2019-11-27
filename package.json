@@ -5,6 +5,7 @@
   "homepage": "https://rodrigotomees.github.io/react-complete-guide",
   "dependencies": {
     "babel-loader": "^8.0.6",
+    "prop-types": "^15.7.2",
     "radium": "^0.26.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
